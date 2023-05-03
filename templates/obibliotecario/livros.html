@@ -12,44 +12,61 @@
         crossorigin="anonymous"></script>
     <title>Resultado da Busca</title>
 </head>
+
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <img src="img/book.svg" alt="Bootstrap" width="40" height="40">
-        <a class="navbar-brand" href="#">Obibliotecario</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">sobre</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contato</a>
-            </li>
-          
-            
-            </ul>
-        </div>
-        </div>
-    </nav>
-</header>
-    <div class="row row-cols-1 row-cols-md-4 g-4 m-5">
-        <div class="col">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{dados}}</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <img src="img/book.svg" alt="Bootstrap" width="40" height="40">
+                <a class="navbar-brand" href="#">Obibliotecario</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contato</a>
+                        </li>
+
+
+                    </ul>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
+        </nav>
+    </header>
+    <div class="cream-bg">
+        <section class="container mt-3">
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                {% for livro in livros %}
+                <div class="col-lg-6">
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                          <div class="col-md-4">
+                            <img src="{{ livro.imagem }}" class="card-img img-fluid rounded-start" alt="Capa do livro {{ livro.titulo }}">
+                          </div>
+                          <div class="col-md-8">
+                            <div class="card-body" style="max-height: 250px; overflow: hidden;">
+                              <h5 class="card-title">{{ livro.titulo }}</h5>
+                              <p class="card-text">{{ livro.autor }}</p>
+                              <p class="card-text text-wrap">{{ livro.descricao }}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                {% endfor %}
+    
+            </div>
+    
+        </section>
+    </div>
 
 
 </body>
